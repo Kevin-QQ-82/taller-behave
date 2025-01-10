@@ -1,0 +1,54 @@
+Feature: Todo List Management # features/todo.feature:1
+  As a user
+  I want to manage my todo list
+  So that I can organize my tasks
+  Scenario: Add a new task                            # features/todo.feature:6
+    Given I have an empty todo list                   # features/steps/todo_steps.py:4
+    When I add a task with the description "Buy milk" # features/steps/todo_steps.py:8
+    Then the todo list should contain 1 task          # features/steps/todo_steps.py:12
+    And the task description should be "Buy milk"     # features/steps/todo_steps.py:16
+
+  Scenario: List all tasks                                                # features/todo.feature:12
+    Given I have a todo list with the tasks "Buy milk" and "Walk the dog" # features/steps/todo_steps.py:20
+    When I list all tasks                                                 # features/steps/todo_steps.py:27
+    Then I should see the tasks "Buy milk" and "Walk the dog"             # features/steps/todo_steps.py:31
+
+  Scenario: Mark a task as completed                       # features/todo.feature:17
+    Given I have a todo list with the task "Buy milk"      # features/steps/todo_steps.py:36
+    When I mark the task "Buy milk" as completed           # features/steps/todo_steps.py:41
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:45
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:36
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:51
+    Then the todo list should be empty                # features/steps/todo_steps.py:55
+
+  Scenario: Search for a specific task                                    # features/todo.feature:27
+    Given I have a todo list with the tasks "Buy milk" and "Walk the dog" # features/steps/todo_steps.py:20
+    When I search for the task "Walk the dog"                             # features/steps/todo_steps.py:59
+    Then I should find the task "Walk the dog"                            # features/steps/todo_steps.py:63
+      Assertion Failed: Expected 'Walk the dog' in ['"Walk the dog"']
+
+
+  Scenario: Prevent adding duplicate tasks                  # features/todo.feature:32
+    Given I have a todo list with the task "Buy milk"       # features/steps/todo_steps.py:36
+    When I add a task with the description "Buy milk"       # features/steps/todo_steps.py:8
+    Then I should see an error saying "Task already exists" # features/steps/todo_steps.py:67
+
+
+Failing scenarios:
+  features/todo.feature:27  Search for a specific task
+
+0 features passed, 1 failed, 0 skipped
+5 scenarios passed, 1 failed, 0 skipped
+18 steps passed, 1 failed, 0 skipped, 0 undefined
+    Then I should see an error saying "Task already exists" # features/steps/todo_steps.py:67
+
+
+Failing scenarios:
+  features/todo.feature:27  Search for a specific task
+
+0 features passed, 1 failed, 0 skipped
+5 scenarios passed, 1 failed, 0 skipped
+18 steps passed, 1 failed, 0 skipped, 0 undefined
+Took 0m0.004s

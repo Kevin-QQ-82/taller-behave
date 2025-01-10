@@ -1,0 +1,127 @@
+Feature: Todo List Management # features/todo.feature:1
+  As a user
+  I want to manage my todo list
+  So that I can organize my tasks
+  Scenario: Add a new task                            # features/todo.feature:6
+    Given I have an empty todo list                   # features/steps/todo_steps.py:5
+    When I add a task with the description "Buy milk" # features/steps/todo_steps.py:9
+    Then the todo list should contain 1 task          # features/steps/todo_steps.py:13
+    And the task description should be "Buy milk"     # features/steps/todo_steps.py:17
+
+  Scenario: List all tasks                                                # features/todo.feature:12
+    Given I have a todo list with the tasks "Buy milk" and "Walk the dog" # features/steps/todo_steps.py:21
+    When I list all tasks                                                 # features/steps/todo_steps.py:28
+    Then I should see the tasks "Buy milk" and "Walk the dog"             # features/steps/todo_steps.py:32
+
+  Scenario: Mark a task as completed                       # features/todo.feature:17
+    Given I have a todo list with the task "Buy milk"      # features/steps/todo_steps.py:37
+    When I mark the task "Buy milk" as completed           # features/steps/todo_steps.py:42
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:46
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+    When I list all tasks                                                 # features/steps/todo_steps.py:28
+    Then I should see the tasks "Buy milk" and "Walk the dog"             # features/steps/todo_steps.py:32
+
+  Scenario: Mark a task as completed                       # features/todo.feature:17
+    Given I have a todo list with the task "Buy milk"      # features/steps/todo_steps.py:37
+    When I mark the task "Buy milk" as completed           # features/steps/todo_steps.py:42
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:46
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+    Then the todo list should be empty                # features/steps/todo_steps.py:56
+
+  Scenario: Get the creation date of the todo list  # features/todo.feature:27
+    Given I have a new todo list                    # features/steps/todo_steps.py:60
+    When I check the creation date of the todo list # features/steps/todo_steps.py:64
+    Then I should see the current date              # features/steps/todo_steps.py:68
+
+  Scenario: Prevent adding duplicate tasks                  # features/todo.feature:32
+    Given I have a todo list with the task "Buy milk"       # features/steps/todo_steps.py:37
+    When I list all tasks                                                 # features/steps/todo_steps.py:28
+    Then I should see the tasks "Buy milk" and "Walk the dog"             # features/steps/todo_steps.py:32
+
+  Scenario: Mark a task as completed                       # features/todo.feature:17
+    Given I have a todo list with the task "Buy milk"      # features/steps/todo_steps.py:37
+    When I mark the task "Buy milk" as completed           # features/steps/todo_steps.py:42
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:46
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+    Then the todo list should be empty                # features/steps/todo_steps.py:56
+
+  Scenario: Get the creation date of the todo list  # features/todo.feature:27
+
+  Scenario: Mark a task as completed                       # features/todo.feature:17
+    Given I have a todo list with the task "Buy milk"      # features/steps/todo_steps.py:37
+    When I mark the task "Buy milk" as completed           # features/steps/todo_steps.py:42
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:46
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+  Scenario: Mark a task as completed                       # features/todo.feature:17
+    Given I have a todo list with the task "Buy milk"      # features/steps/todo_steps.py:37
+    When I mark the task "Buy milk" as completed           # features/steps/todo_steps.py:42
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:46
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+    Given I have a todo list with the task "Buy milk"      # features/steps/todo_steps.py:37
+    When I mark the task "Buy milk" as completed           # features/steps/todo_steps.py:42
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:46
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+    When I mark the task "Buy milk" as completed           # features/steps/todo_steps.py:42
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:46
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+    Then the todo list should be empty                # features/steps/todo_steps.py:56
+
+    Then the task "Buy milk" should be marked as completed # features/steps/todo_steps.py:46
+
+  Scenario: Delete a task                             # features/todo.feature:22
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+    Then the todo list should be empty                # features/steps/todo_steps.py:56
+
+  Scenario: Get the creation date of the todo list  # features/todo.feature:27
+    Given I have a new todo list                    # features/steps/todo_steps.py:60
+    Given I have a todo list with the task "Buy milk" # features/steps/todo_steps.py:37
+    When I delete the task "Buy milk"                 # features/steps/todo_steps.py:52
+    Then the todo list should be empty                # features/steps/todo_steps.py:56
+
+  Scenario: Get the creation date of the todo list  # features/todo.feature:27
+    Given I have a new todo list                    # features/steps/todo_steps.py:60
+    When I check the creation date of the todo list # features/steps/todo_steps.py:64
+    Then I should see the current date              # features/steps/todo_steps.py:68
+    Then the todo list should be empty                # features/steps/todo_steps.py:56
+
+  Scenario: Get the creation date of the todo list  # features/todo.feature:27
+    Given I have a new todo list                    # features/steps/todo_steps.py:60
+    When I check the creation date of the todo list # features/steps/todo_steps.py:64
+    Then I should see the current date              # features/steps/todo_steps.py:68
+  Scenario: Get the creation date of the todo list  # features/todo.feature:27
+    Given I have a new todo list                    # features/steps/todo_steps.py:60
+    When I check the creation date of the todo list # features/steps/todo_steps.py:64
+    Then I should see the current date              # features/steps/todo_steps.py:68
+    When I check the creation date of the todo list # features/steps/todo_steps.py:64
+    Then I should see the current date              # features/steps/todo_steps.py:68
+
+  Scenario: Prevent adding duplicate tasks                  # features/todo.feature:32
+    Given I have a todo list with the task "Buy milk"       # features/steps/todo_steps.py:37
+    When I add a task with the description "Buy milk"       # features/steps/todo_steps.py:9
+    Then I should see an error saying "Task already exists" # features/steps/todo_steps.py:73
+
+1 feature passed, 0 failed, 0 skipped
+6 scenarios passed, 0 failed, 0 skipped
+19 steps passed, 0 failed, 0 skipped, 0 undefined
